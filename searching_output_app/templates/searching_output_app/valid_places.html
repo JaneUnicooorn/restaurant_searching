@@ -1,12 +1,18 @@
 {% extends 'searching_output_app/base.html' %}
 {% block content %}
-{% for place in valid_places %}
-    <div>
-        <h3>Place: {{ place.place_name }}</h3>
-        <p>Day: {{ place.day }}</p>
-        <p>Time: {{ place.w_to }} - {{ place.w_from }}</p>
-    </div>
-{% endfor %}
+    <table border="1">
+        <tr>
+            <th>Place</th>
+            <th>Day</th>
+            <th>Time</th>
+        </tr>
+        {% for place in valid_places %}
+            <tr>
+            <th>{{ place.place_name }}</th>
+            <th>{{ place.day }}</th>
+            <th>{{ place.w_to }} - {{ place.w_from }}</th>
+            </tr>
+
+        {% endfor %}
+    </table>
 {% endblock %}
-</body>
-</html>
