@@ -1,9 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 import csv
 from .models import Restaurant
 import datetime
 
-WEEK_DAYS = {1:'Monday', 2:'Tuesday', 3:'Wednesday', 4:'Thursday',5:'Friday', 6:'Saturday', 0:'Sunday'}
+WEEK_DAYS = {1:'Monday',
+             2:'Tuesday',
+             3:'Wednesday',
+             4:'Thursday',
+             5:'Friday',
+             6:'Saturday',
+             0:'Sunday'}
 
 def home(request):
     now_dt = datetime.datetime.now()
@@ -35,7 +41,6 @@ def valid_places(request):
 
     week_day_str = WEEK_DAYS[week_day]
 
-
     places_for_day= list(Restaurant.objects.filter(day=week_day))
 
     valid_places = []
@@ -54,6 +59,10 @@ def valid_places(request):
                 valid_places.append(el)
                 print('yes')
 
-
     return render(request, 'searching_output_app/valid_places.html', {'now_time':now_time,'week_day_str':week_day_str,'week_day':week_day,
                                                                       'valid_places':valid_places, })
+
+def place_details(request, pk):
+    place = get_object_or_404(Restaurant, pk=pk)
+    return render(request, 'searching_output_app/place_details.html', {'place': place})
+

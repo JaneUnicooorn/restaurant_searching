@@ -1,7 +1,6 @@
 <body>
 <div>
-    <h1><a href="valid_places.html">Click here</a>  to find places</h1>
-    <p>Today is {{ week_day_str }} ({{ week_day }}) and now {{ now_time }}</p>
+    <h1><a href="{% url 'valid_places' %}">Click here</a>  to find places</h1>
 </div>
 
 {% block content %}

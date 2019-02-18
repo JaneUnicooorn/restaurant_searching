@@ -1,5 +1,7 @@
 {% extends 'searching_output_app/base.html' %}
 {% block content %}
+
+    <h3>Today is {{ week_day_str }} ({{ week_day }}) and now {{ now_time }}</h3>
     <table border="1">
         <tr>
             <th>Place</th>
@@ -8,7 +10,7 @@
         </tr>
         {% for place in valid_places %}
             <tr>
-            <th>{{ place.place_name }}</th>
+            <th><a href="{% url 'place_details' pk=place.pk %}" >{{ place.place_name }}</a></th>
             <th>{{ place.day }}</th>
             <th>{{ place.w_to }} - {{ place.w_from }}</th>
             </tr>
