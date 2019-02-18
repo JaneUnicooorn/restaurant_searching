@@ -76,9 +76,17 @@ WSGI_APPLICATION = 'restaurant_searching.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE':'django.db.backends.postgresql_psycopg2',
+        'HOST': 'dumbo.db.elephantsql.com',
+        'NAME': 'yjcxurec',
+        'PASSWORD': 'PCpxO6XID9l9QNx5-a3yIDd8ocLGj8ze',
+        'USER': 'yjcxurec',
+
     }
+    #     'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),}
+
 }
 
 
